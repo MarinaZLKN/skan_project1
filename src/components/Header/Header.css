@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;600&display=swap');
+
+.header{
+    position: absolute;
+    padding: 10px;
+    margin: 20px;
+    width: 1440px;
+    height: 93px;
+    background: #FFFFFF;
+}
+
+.image {
+    position: absolute;
+    width: 141px;
+    height: 93px;
+    left: 60px;
+    top: -5px;
+
+    background: url(logo.png);
+
+}
+.menu {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 236px;
+    height: 17px;
+    left: 602px;
+    top: 38px;
+}
+
+.main, .tarif, .faq {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+
+}
+
+.separator{
+    position: absolute;
+    width: 2px;
+    height: 26px;
+    left: 1295px;
+    top: 33px;
+
+    background: #029491;
+    opacity: 0.6;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+
+}
+
+.register-name{
+    position: absolute;
+    width: 146px;
+    height: 17px;
+    left: 1129px;
+    top: 37px;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.01em;
+
+    color: #000000;
+
+    opacity: 0.4;
+}
+.btn {
+    font-family: 'Inter', sans-serif;
+    position: absolute;
+    width: 65px;
+    height: 26px;
+    left: 1315px;
+    top: 33px;
+    background: #7CE3E1;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}

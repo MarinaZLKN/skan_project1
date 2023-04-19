@@ -1,0 +1,39 @@
+.footer {
+    margin-bottom: 20px;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: absolute;
+    width: 1440px;
+    height: 137px;
+    top: 2730px;
+    background: #029491;
+}
+
+.image-footer {
+    position: absolute;
+    width: 141px;
+    height: 141px;
+    left: 60px;
+    top: -2px;
+    background: url(logo-footer.png);
+}
+
+
+.address-name{
+    position: absolute;
+    width: 199px;
+    height: 48px;
+    left: 1196px;
+    top: 25px;
+    background: url(address.png);
+}
+.copyright {
+    position: absolute;
+    width: 92px;
+    height: 12px;
+    left: 1303px;
+    top: 100px;
+
+    background: url(copyright.png);
+}
