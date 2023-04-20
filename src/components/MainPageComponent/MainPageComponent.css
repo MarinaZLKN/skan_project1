@@ -125,3 +125,9 @@ h1{}
     transform: matrix(1, 0, 0, 1, 0, 0);
 
 }
+
+.slider {
+    position: relative;
+    top: 1100px;
+    left: 40px;
+}

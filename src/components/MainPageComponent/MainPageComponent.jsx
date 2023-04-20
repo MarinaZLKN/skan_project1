@@ -1,4 +1,5 @@
 import './MainPageComponent.css';
+import Carousel from "../Slider/Slider";
 
 
 function MainPageComponent (){
@@ -21,6 +22,10 @@ function MainPageComponent (){
             <div className="title">
                 <span> Почему именно мы</span>
             </div>
+            <div className="slider">
+                <Carousel />
+            </div>
+
             <div className="image-elements">
             </div>
         </div>
