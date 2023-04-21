@@ -21,10 +21,12 @@ function MainPageComponent (){
             <div className="middle-page-content">
             <div className="title">
                 <span> Почему именно мы</span>
-            </div>
-            <div className="slider">
+                <div className="slider">
                 <Carousel />
             </div>
+
+            </div>
+
 
             <div className="image-elements">
             </div>

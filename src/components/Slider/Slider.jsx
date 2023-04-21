@@ -6,29 +6,42 @@ import "./slick-theme.css";
 
 function Carousel() {
 
-    const cards = [
-        './cards/card1.png',
-        './cards/card2.png',
-        './cards/card3.png',
-        './cards/card1.png',
-    ]
-  const renderSlides = () =>
-    cards.map(num => (
-      <div>
-        <h3>Slide {num}</h3>
-      </div>
-    ));
+    const settings = {
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+
+      responsive: [
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+
+    }
+
 
   return (
     <div className="slider">
-      <Slider
-        dots={false}
-        slidesToShow={3}
-        slidesToScroll={1}
-        autoplay={false}
-        autoplaySpeed={3000}
-      >
-        {renderSlides()}
+      <Slider {...settings}>
+          <div className="card">
+              <img src="cards/card1.png" alt="pic"/>
+          </div>
+          <div className="card">
+              <img src="cards/card2.png" alt="pic"/>
+          </div>
+          <div className="card">
+              <img src="cards/card3.png" alt="pic"/>
+          </div>
+          <div className="card">
+              <img src="cards/card1.png" alt="pic"/>
+          </div>
+
+
       </Slider>
     </div>
   );

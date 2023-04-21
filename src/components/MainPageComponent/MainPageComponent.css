@@ -127,7 +127,9 @@ h1{}
 }
 
 .slider {
-    position: relative;
-    top: 1100px;
-    left: 40px;
+    margin-top: 30px;
+    width: 1346px;
+    height: 225px;
+    font-size: 20px;
+
 }
