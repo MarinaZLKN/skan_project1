@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import "./slick.css";
 import "./slick-theme.css";
 
+
+
 function Carousel() {
 
     const settings = {

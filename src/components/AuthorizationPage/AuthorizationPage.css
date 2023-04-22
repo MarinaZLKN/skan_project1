@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;800&display=swap');
+.auth-content {
+    position: absolute;
+    width: 1440px;
+    height: 902px;
+
+    background: #FFFFFF;
+    top: 130px;
+    left: 20px;
+    display: flex;
+}
+.auth-left_side-content {
+    flex: 0 1 50%;
+    
+}
+
+.auth-title {
+    position: absolute;
+    width: 699px;
+    height: 144px;
+    left: 60px;
+    top: 52px;
+
+    font-family: 'Rubik', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: #000000;
+}
+
+.auth-image {
+    position: absolute;
+    left: 11.94%;
+    right: 65.71%;
+    top: 35.47%;
+    bottom: 26.61%;
+    background: url(Characters.png);
+}
