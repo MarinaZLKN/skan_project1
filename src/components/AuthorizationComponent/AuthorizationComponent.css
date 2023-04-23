@@ -112,9 +112,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
-.button:hover {
-    background-color: #a7c0fd;
+.auth-button:hover {
+    background-color: #7594f5;
 }
 
 #auth-text {
@@ -138,6 +139,9 @@
     text-decoration-line: underline;
 
     color: #5970FF;
+}
+#text-auth:hover {
+    color: #2844f8;
 }
 
 .auth-lower-side {

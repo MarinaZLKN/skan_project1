@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import MainPageComponent from "./components/MainPageComponent/MainPageComponent";
 import AuthorizationPage from "./components/AuthorizationPage/AuthorizationPage";
+import SearchPage from "./components/SearchPage/SearchPage";
 
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
     <div className="app">
         <Header />
         {/*<MainPageComponent />*/}
-        <AuthorizationPage />
+        {/*<AuthorizationPage />*/}
+        <SearchPage />
         <Footer />
     </div>
   );

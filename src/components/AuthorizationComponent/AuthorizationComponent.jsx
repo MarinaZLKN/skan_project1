@@ -1,5 +1,5 @@
 import './AuthorizationComponent.css';
-// import './new.css'
+
 function AuthorizationComponent () {
     return (
         <div className="auth-component">
@@ -21,11 +21,11 @@ function AuthorizationComponent () {
                 <div className="auth-input-title"> Пароль:</div>
                 <input id="input" type="password"/>
                 <div className="auth-button">
-                    <a href="" id="auth-text">Войти</a>
+                    <a href="#" id="auth-text">Войти</a>
                 </div>
                 {/*<button className="auth-button"><span id="auth-text">Войти</span></button>*/}
                 <div className="auth-restore-pass">
-                    <a href="" id="text-auth">Восстановить пароль</a>
+                    <a href="#" id="text-auth">Восстановить пароль</a>
                 </div>
             </div>
             <div className="auth-lower-side">
