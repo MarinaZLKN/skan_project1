@@ -18,11 +18,8 @@
 }
 
 .auth-enter_div {
-
     width: 49px;
     height: 19px;
-    left: 947px;
-    top: 187px;
 }
 
 .auth-reg {
@@ -32,9 +29,9 @@
 
     width: 170px;
     height: 19px;
-    left: 1084px;
-    top: 187px;
-    font-family: 'Inter';
+    left: 14px;
+    top: 10px;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -188,4 +185,14 @@
     left: 240px;
     top: 43px;
     background: url(logo-3.png);
+}
+
+.pic-lock{
+    position: absolute;
+    width: 75px;
+    height: 92px;
+    left: -50px;
+    top: -70px;
+    background: url(lock.png);
+    z-index: 2;
 }

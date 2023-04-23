@@ -3,6 +3,8 @@ import './AuthorizationComponent.css';
 function AuthorizationComponent () {
     return (
         <div className="auth-component">
+            <div className="wrapper">
+                <div className="pic-lock"></div>
             <div className="auth-upper-side">
                 <div className="auth-enter_div">
                     <a id="auth-enter">Войти</a>
@@ -33,6 +35,7 @@ function AuthorizationComponent () {
                     <div className="logo-2"></div>
                     <div className="logo-3"></div>
                 </div>
+            </div>
             </div>
         </div>
     )
