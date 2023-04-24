@@ -1,4 +1,5 @@
 import './SearchPage.css';
+import SearchComponent from "../SearchComponent/SearchComponent";
 
 function SearchPage (){
     return(
@@ -12,13 +13,21 @@ function SearchPage (){
                         <p> Задайте параметры поиска.</p>
                         <p>Чем больше заполните, тем точнее поиск</p>
                     </div>
+                    <div className="search-component-wrapper">
+                    < SearchComponent />
                 </div>
-                <div className="search-component-wrapper"></div>
+                </div>
                 <div className="search-pictures">
-                    <div className="pic1"></div>
-                    <div className="pic2"></div>
-                    <div className="pic3"></div>
+                        <div className="pic1"></div>
+                        <div className="pic2"></div>
+                        <div className="pic3"></div>
                 </div>
+
+            {/*        <div className="search-pictures">*/}
+            {/*            <div className="pic1"></div>*/}
+            {/*            <div className="pic2"></div>*/}
+            {/*            <div className="pic3"></div>*/}
+            {/*        </div>*/}
             </div>
         </div>
     )

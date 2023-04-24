@@ -35,3 +35,40 @@
 
     color: #000000;
 }
+
+/*.search-component-wrapper{*/
+/*    display: flex;*/
+/*    align-items: flex-start;*/
+
+/*}*/
+
+.search-pictures{
+}
+
+.pic1 {
+    position: absolute;
+    width: 442px;
+    height: 470px;
+    left: 950px;
+    top: 330px;
+    background: url(pic1.png);
+}
+
+.pic2 {
+
+    position: absolute;
+    left: 65.14%;
+    right: 28.54%;
+    top: 10%;
+    bottom: 70.04%;
+    background: url(Document.png);
+}
+
+.pic3{
+    position: absolute;
+    left: 82.99%;
+    right: 7.25%;
+    top: 10.66%;
+    bottom: 72.25%;
+    background: url(Folders.png);
+}
