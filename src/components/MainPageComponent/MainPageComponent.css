@@ -72,15 +72,13 @@ h1{}
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
 #btn-text{
-
-    width: 208px;
-    height: 27px;
-    left: 123px;
-    top: 602px;
 
     font-family: 'Inter', sans-serif;
     font-style: normal;
@@ -88,6 +86,7 @@ h1{}
     font-size: 22px;
     line-height: 27px;
     letter-spacing: 0.01em;
+    text-decoration: none;
 
     color: #FFFFFF;
 }

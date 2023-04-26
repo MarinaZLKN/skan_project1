@@ -1,5 +1,6 @@
 import './MainPageComponent.css';
 import Carousel from "../Slider/Slider";
+import {Link} from "react-router-dom";
 
 
 function MainPageComponent (){
@@ -13,7 +14,9 @@ function MainPageComponent (){
                 <div className="under-text">
                     <span>Комплексный анализ публикаций, получение данных в формате PDF на электронную почту.</span>
                 </div>
-                <button className="btn_main-page"><span id="btn-text">Запросить данные</span></button>
+                <div className="btn_main-page">
+                    <Link to="/search" id="btn-text">Запросить данные</Link>
+                </div>
             </div>
             <div className="picture"></div>
             </div>
