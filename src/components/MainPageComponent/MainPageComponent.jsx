@@ -1,9 +1,11 @@
 import './MainPageComponent.css';
 import Carousel from "../Slider/Slider";
 import {Link} from "react-router-dom";
+import Card from "../Card/Card";
 
 
 function MainPageComponent (){
+
     return (
         <div className="content">
             <div className="upper-page-content">
@@ -33,7 +35,16 @@ function MainPageComponent (){
 
             <div className="image-elements">
             </div>
-        </div>
+
+            </div>
+            <div className="down-page-content">
+               <div className="down-title">
+                   <span>Наши тарифы</span>
+               </div>
+               <div className="tariff-cards">
+                   <Card />
+               </div>
+            </div>
         </div>
     )
 }

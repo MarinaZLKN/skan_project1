@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;600&display=swap');
 
 
-.search-componenet-content{
+.search-component-content{
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 872px;
@@ -27,11 +27,20 @@
     height: 59px;
     background: #5970FF;
     border-radius: 5px;
+    border: none;
     /*opacity: 0.5;*/
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.03em;
 }
 .search-button:hover {
     background-color: #7594f5;
@@ -100,3 +109,4 @@
     display: flex;
     gap: 15px;
 }
+

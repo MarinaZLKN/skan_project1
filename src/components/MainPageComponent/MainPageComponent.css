@@ -130,5 +130,25 @@ h1{}
     width: 1346px;
     height: 225px;
     font-size: 20px;
+}
 
+.down-page-content{
+    position: absolute;
+    width: 743px;
+    height: 54px;
+    left: 60px;
+    top: 1948px;
+}
+
+.down-title{
+    font-family: 'Rubik', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 45px;
+    line-height: 54px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+
+    color: #000000;
+    padding-bottom: 70px;
 }

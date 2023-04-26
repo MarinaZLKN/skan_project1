@@ -1,0 +1,88 @@
+.tariff-card{
+
+    box-sizing: border-box;
+    width: 415px;
+    height: 540px;
+    background: #FFFFFF;
+    border: 2px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.card-wrapper {
+    display: block;
+}
+
+.card-upper-side {
+    width: 415px;
+    height: 132px;
+
+    background: #FFB64F;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.title-part {
+    padding-left: 30px;
+    padding-top: 3px;
+}
+
+.card-title {
+    font-family: 'Inter',sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: 0.01em;
+
+    color: #000000;
+}
+
+.card-title_info {
+    padding-top: -10px;
+    font-family: 'Inter',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    letter-spacing: 0.01em;
+
+    color: #000000;
+}
+.card-logo {
+    background: url(pirn.png);
+    position: absolute;
+    width: 92.24px;
+    height: 83.15px;
+    left: 319.24px;
+    top: 150px;
+    z-index: 2;
+
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.card-btn {
+    margin-top: 30px;
+    width: 305px;
+    height: 59px;
+    background: #5970FF;
+    border-radius: 5px;
+    border: none;
+    /*opacity: 0.5;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.03em;
+}
+
+.card-btn:hover {
+    background-color: #7594f5;
+}
