@@ -47,7 +47,7 @@
 
 .pic1 {
     position: absolute;
-    width: 442px;
+    width: 435px;
     height: 470px;
     left: 950px;
     top: 330px;
@@ -61,6 +61,8 @@
     right: 28.54%;
     top: 10%;
     bottom: 70.04%;
+    width: 91px;
+    height: 111px;
     background: url(Document.png);
 }
 
@@ -70,5 +72,7 @@
     right: 7.25%;
     top: 10.66%;
     bottom: 72.25%;
+    width: 140px;
+    height: 69px;
     background: url(Folders.png);
 }

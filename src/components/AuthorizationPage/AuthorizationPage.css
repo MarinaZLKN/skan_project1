@@ -36,7 +36,9 @@
     position: absolute;
     left: 11.94%;
     right: 65.71%;
-    top: 35.47%;
+    top: 25.47%;
     bottom: 26.61%;
+    width: 322px;
+    height: 342px;
     background: url(Characters.png);
 }

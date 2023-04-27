@@ -1,0 +1,24 @@
+.card-upper-side_pro {
+    width: 415px;
+    height: 132px;
+
+    background: #7CE3E1;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.card-logo_pro {
+    background: url("target.png");
+
+    position: absolute;
+    width: 100.24px;
+    height: 110px;
+    left: 290.24px;
+    top: 5px;
+    z-index: 2;
+
+    transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+
+
+

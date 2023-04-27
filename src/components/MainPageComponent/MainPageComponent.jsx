@@ -2,6 +2,8 @@ import './MainPageComponent.css';
 import Carousel from "../Slider/Slider";
 import {Link} from "react-router-dom";
 import Card from "../Card/Card";
+import CardPro from "../Card/CardPro";
+import CardBusiness from "../Card/CardBusiness";
 
 
 function MainPageComponent (){
@@ -43,6 +45,8 @@ function MainPageComponent (){
                </div>
                <div className="tariff-cards">
                    <Card />
+                   <CardPro />
+                   <CardBusiness />
                </div>
             </div>
         </div>
