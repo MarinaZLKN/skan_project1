@@ -1,8 +1,16 @@
 import './AuthorizationComponent.css';
 import {Link} from "react-router-dom";
+import {useContext, useState} from "react";
+import {Context} from "../../index";
 
 
 function AuthorizationComponent () {
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const {store} = useContext(Context);
+
     return (
         <div className="auth-component">
             <div className="wrapper">
@@ -17,11 +25,11 @@ function AuthorizationComponent () {
                             <section className="tab-content">
                                 <form className="auth-center-side">
                                     <div className="auth-input-title"> Логин или номер телефона:</div>
-                                    <input id="input" type="text" size="30"/>
+                                    <input onChange={e => setUsername(e.target.value)} value={username} id="input" type="text" size="30"/>
                                     <div className="auth-input-title"> Пароль:</div>
-                                    <input id="input" type="password"/>
+                                    <input onChange={e => setPassword(e.target.value)} value={password} id="input" type="password"/>
                                      <Link to="/">
-                                         <button type="submit" id="auth-text" className="auth-button"> Войти </button>
+                                         <button onClick={() => store.login(username, password)} type="submit" id="auth-text" className="auth-button"> Войти </button>
                                      </Link>
                                     <div className="auth-restore-pass">
                                         <a href="#" id="text-auth">Восстановить пароль</a>
