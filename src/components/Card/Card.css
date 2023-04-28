@@ -9,6 +9,7 @@
     border-radius: 10px;
 }
 
+
 .card-wrapper {
     position: relative;
     top:-30px;
@@ -16,7 +17,7 @@
 }
 
 .card-upper-side {
-    width: 415px;
+    width: 412px;
     height: 132px;
 
     background: #FFB64F;
@@ -129,6 +130,9 @@ ul{
     font-size: 18px;
     list-style-type: none;
 
+}
+li {
+    margin-left: -15px;
 }
 li::before {
   content: url("icon-1.png");

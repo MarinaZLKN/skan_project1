@@ -83,15 +83,21 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border: none;
 }
 .auth-button:hover {
     background-color: #7594f5;
 }
 
 #auth-text {
-    text-decoration: unset;
     color: #FFFFFF;
     font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
 
 }
 .auth-restore-pass{
@@ -133,6 +139,7 @@
 }
 
 .auth-logos{
+    cursor: pointer;
 
 }
 

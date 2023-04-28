@@ -13,9 +13,9 @@ function Header() {
               <div className="side-menu">
                   <label className="register-name"> Зарегистрироваться</label>
                   <div className="separator"></div>
-                  <div className="header-btn">
-                      <Link to="/auth" id="header-btn-text">Войти</Link>
-                  </div>
+                  <Link to="/auth">
+                      <button className="header-btn" id="header-btn-text">Войти</button>
+                  </Link>
               </div>
           </div>
   );

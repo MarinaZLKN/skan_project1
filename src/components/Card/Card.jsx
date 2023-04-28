@@ -1,6 +1,8 @@
 import './Card.css';
 
 function Card () {
+
+
     return (
         <div className="tariff-card">
             <div className="card-wrapper">

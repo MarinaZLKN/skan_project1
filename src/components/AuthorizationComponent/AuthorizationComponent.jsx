@@ -1,6 +1,6 @@
 import './AuthorizationComponent.css';
 import {Link} from "react-router-dom";
-import MainPageComponent from "../MainPageComponent/MainPageComponent";
+
 
 function AuthorizationComponent () {
     return (
@@ -15,18 +15,18 @@ function AuthorizationComponent () {
                             </label>
 
                             <section className="tab-content">
-                                <div className="auth-center-side">
+                                <form className="auth-center-side">
                                     <div className="auth-input-title"> Логин или номер телефона:</div>
                                     <input id="input" type="text" size="30"/>
                                     <div className="auth-input-title"> Пароль:</div>
                                     <input id="input" type="password"/>
-                                    <div className="auth-button">
-                                        <Link to="/" id="auth-text">Войти</Link>
-                                    </div>
+                                     <Link to="/">
+                                         <button type="submit" id="auth-text" className="auth-button"> Войти </button>
+                                     </Link>
                                     <div className="auth-restore-pass">
                                         <a href="#" id="text-auth">Восстановить пароль</a>
                                     </div>
-                                </div>
+                                </form>
                             </section>
                     </div>
                     <div className="tab">
