@@ -1,6 +1,6 @@
 import './AuthorizationComponent.css';
 import {Link} from "react-router-dom";
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {Context} from "../../index";
 import axios from "axios";
 
@@ -11,6 +11,7 @@ function AuthorizationComponent () {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState("");
+    const [accountInfo, setAccountInfo] = useState(null);
 
 
     const handleLogin = async () => {
@@ -38,6 +39,19 @@ function AuthorizationComponent () {
             setError(err.response.data.message)
         }
     };
+
+    //функция получания инфы работает, но возвращает 401, поскольку мы еще не авторизированы
+    useEffect(() => {
+        axios.get('https://gateway.scan-interfax.ru/api/v1/account/info')
+            .then(response => {
+            setAccountInfo(response.data);
+            console.log(response.data)
+        })
+            .catch(error => {
+                console.log(error);
+            });
+    }, []);
+
 
 
 

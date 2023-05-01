@@ -1,7 +1,20 @@
 import './SearchComponent.css';
+import {useState} from "react";
+import DateInput from "./DateInput";
 
 
 function SearchComponent (){
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+    const [isValid, setIsValid] = useState(true);
+
+    function handleValidation(start, end) {
+        setIsValid(new Date(start) <= new Date(end));
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+    }
 
     return (
         <div className="search-component-content">
@@ -19,12 +32,14 @@ function SearchComponent (){
                 <input id="input_1" type="text" size="30" placeholder="От 1 до 1000" min="1" max="1000"/>
                 <div className="search-input-4"> <p id="checkbox-p">Диапазон поиска<sup>*</sup></p> </div>
                 <form id="search-form">
-                    <p id="checkbox-p">
-                        <input type="date" id="date" name="date"/>
-                    </p>
-                    <p id="checkbox-p">
-                        <input type="date" id="date" name="date"/>
-                    </p>
+                     < DateInput startDate={startDate} endDate={endDate} onValidation={handleValidation}/>
+
+                    {/*<p id="checkbox-p">*/}
+                    {/*    <input type="date" id="date" name="start-date"/>*/}
+                    {/*</p>*/}
+                    {/*<p id="checkbox-p">*/}
+                    {/*    <input type="date" id="date" name="end-date"/>*/}
+                    {/*</p>*/}
 
                 </form>
             </div>
@@ -39,7 +54,7 @@ function SearchComponent (){
                 <p id="checkbox-p"><input type="checkbox" name="checkbox" value=""/> Включать сводки новостей</p>
             </div>
                 <div className="search-down-part">
-                    <button type="submit" className="search-button">Поиск</button>
+                    <button type="submit" className="search-button" disabled={!isValid}>Поиск</button>
                     <p id="bottom-p"> <sup>*</sup>Обязательные к заполнению поля</p>
                 </div>
 
