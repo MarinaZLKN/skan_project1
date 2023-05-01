@@ -18,6 +18,22 @@
 
     transform: matrix(1, 0, 0, 1, 0, 0);
 }
+.tariff-card-pro{
+
+    box-sizing: border-box;
+    width: 415px;
+    height: 540px;
+    background: #FFFFFF;
+    border: 2px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.tariff-card-pro.selected {
+    border: 2px solid #7CE3E1;
+    font-weight: bold;
+
+}
 
 
 
