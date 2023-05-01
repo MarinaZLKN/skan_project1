@@ -58,10 +58,21 @@
     line-height: 19px;
     letter-spacing: 0.02em;
 
-    color: #949494
+    color: #949494;
+
 }
 
 #input {
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #C7C7C7;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    width: 379px;
+    height: 43px;
+}
+
+#input-1 {
     box-sizing: border-box;
     background: #FFFFFF;
     border: 1px solid #C7C7C7;

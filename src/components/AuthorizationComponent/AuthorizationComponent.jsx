@@ -2,14 +2,48 @@ import './AuthorizationComponent.css';
 import {Link} from "react-router-dom";
 import {useContext, useState} from "react";
 import {Context} from "../../index";
+import axios from "axios";
+
 
 
 function AuthorizationComponent () {
 
-    const [username, setUsername] = useState('');
+    const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState("");
 
-    const {store} = useContext(Context);
+
+    const handleLogin = async () => {
+        try {
+            const response = await axios.post(
+                "https://gateway.scan-interfax.ru/api/v1/account/login",
+                {login, password},
+                {
+                    headers: {
+                        "Content-type": "application/json",
+                        "Accept": "application/json",
+                    },
+                }
+            );
+            const { accessToken } = response.data;
+            console.log(response.data)
+            if (accessToken) {
+                localStorage.setItem("accessToken", accessToken);
+                const myToken = localStorage.getItem("accessToken")
+                console.log(myToken)
+            } else {
+                setError("Access token did not found");
+            }
+        } catch (err) {
+            setError(err.response.data.message)
+        }
+    };
+
+
+
+
+
+    // const {store} = useContext(Context);
 
     return (
         <div className="auth-component">
@@ -25,12 +59,13 @@ function AuthorizationComponent () {
                             <section className="tab-content">
                                 <form className="auth-center-side">
                                     <div className="auth-input-title"> Логин или номер телефона:</div>
-                                    <input onChange={e => setUsername(e.target.value)} value={username} id="input" type="text" size="30"/>
+                                    <input onChange={(e)=> setLogin(e.target.value)} value={login} id="input-1" type="text" size="30"/>
                                     <div className="auth-input-title"> Пароль:</div>
-                                    <input onChange={e => setPassword(e.target.value)} value={password} id="input" type="password"/>
-                                     <Link to="/">
-                                         <button onClick={() => store.login(username, password)} type="submit" id="auth-text" className="auth-button"> Войти </button>
-                                     </Link>
+                                    <input onChange={(e) => setPassword(e.target.value)} value={password} id="input" type="password"/>
+                                    <button onClick={handleLogin} type="submit" id="auth-text" className="auth-button"> Войти </button>
+                                     {/*<Link to="/">*/}
+                                     {/*    <button onClick={handleLogin} type="submit" id="auth-text" className="auth-button"> Войти </button>*/}
+                                     {/*</Link>*/}
                                     <div className="auth-restore-pass">
                                         <a href="#" id="text-auth">Восстановить пароль</a>
                                     </div>
