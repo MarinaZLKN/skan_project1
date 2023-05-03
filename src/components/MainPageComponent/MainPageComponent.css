@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;800&display=swap');
 
 .content{
+    position: absolute;
+    width: 1440px;
     padding: 10px;
     margin: 20px;
 
@@ -56,7 +58,7 @@ h1{}
     position: absolute;
     width: 629px;
     height: 593px;
-    left: 751px;
+    left: 851px;
     top: 144px;
     background: url(2398.png);
 }

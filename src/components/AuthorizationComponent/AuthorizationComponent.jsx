@@ -12,7 +12,6 @@ function AuthorizationComponent () {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState("");
-    const [accountInfo, setAccountInfo] = useState(null);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -41,6 +40,7 @@ function AuthorizationComponent () {
             } else {
                 setError("Access token did not found");
             }
+
         } catch (err) {
             setError(err.response.data.message)
         }

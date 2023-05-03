@@ -5,12 +5,14 @@ import MainPageComponent from "./components/MainPageComponent/MainPageComponent"
 import AuthorizationPage from "./components/AuthorizationPage/AuthorizationPage";
 import SearchPage from "./components/SearchPage/SearchPage";
 import {Route, Routes} from "react-router-dom";
+import {useState} from "react";
 
 
 function App() {
-  return (
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    return (
     <div className="app">
-        <Header />
+        <Header isAuthenticated={isAuthenticated}/>
         <Routes>
             <Route path="/" element={<MainPageComponent />} />
             <Route path="/auth" element={<AuthorizationPage />} />
@@ -21,6 +23,7 @@ function App() {
         <Footer />
     </div>
   );
+
 }
 
 export default App;
