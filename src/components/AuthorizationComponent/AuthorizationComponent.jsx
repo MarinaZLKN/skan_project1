@@ -19,6 +19,10 @@ function AuthorizationComponent () {
     const handleLogin = async (e) => {
         //чтобы страница не обоновлялась
         e.preventDefault()
+        if (!login.trim() || !password.trim()) {
+            setError("Please enter login and password");
+            return;
+        }
         try {
             const response = await axios.post(
                 "https://gateway.scan-interfax.ru/api/v1/account/login",
@@ -42,21 +46,9 @@ function AuthorizationComponent () {
             }
 
         } catch (err) {
-            setError(err.response.data.message)
+            setError(err.response.data.message || "Incorrect login or password");
         }
     };
-
-    //функция получания инфы работает, но возвращает 401, поскольку мы еще не авторизированы
-    // useEffect(() => {
-    //     axios.get('https://gateway.scan-interfax.ru/api/v1/account/info')
-    //         .then(response => {
-    //         setAccountInfo(response.data);
-    //         console.log(response.data)
-    //     })
-    //         .catch(error => {
-    //             console.log(error);
-    //         });
-    // }, []);
 
 
     return (
@@ -73,9 +65,11 @@ function AuthorizationComponent () {
                             <section className="tab-content">
                                 <form className="auth-center-side">
                                     <div className="auth-input-title"> Логин или номер телефона:</div>
-                                    <input onChange={(e)=> setLogin(e.target.value)} value={login} id="input-1" type="text" size="30"/>
+                                    <input onChange={(e)=> setLogin(e.target.value)} value={login} className={`input-1 ${error ? 'auth-input-error' : ''}`} type="text" size="30"/>
+                                    {error && <div className="auth-input-error-message">Введите корректные данные</div>}
                                     <div className="auth-input-title"> Пароль:</div>
-                                    <input onChange={(e) => setPassword(e.target.value)} value={password} id="input" type="password"/>
+                                    <input onChange={(e) => setPassword(e.target.value)} value={password} className={`input ${error ? 'auth-input-error' : ''}`} type="password"/>
+                                    {error && <div className="auth-input-error-message">Неправильный пароль</div>}
                                     <button onClick={handleLogin} type="submit" id="auth-text" className="auth-button"> Войти </button>
                                     <div className="auth-restore-pass">
                                         <a href="#" id="text-auth">Восстановить пароль</a>

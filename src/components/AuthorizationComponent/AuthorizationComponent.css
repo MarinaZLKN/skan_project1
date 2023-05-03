@@ -16,11 +16,6 @@
     justify-content: space-between;
     margin: 20px;
 }
-
-
-
-
-
 .auth-separator {
     margin-top: 10px;
     margin-left: -30px;
@@ -62,24 +57,24 @@
 
 }
 
-#input {
+.input {
     box-sizing: border-box;
     background: #FFFFFF;
     border: 1px solid #C7C7C7;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
     width: 379px;
-    height: 43px;
+    height: 40px;
 }
 
-#input-1 {
+.input-1 {
     box-sizing: border-box;
     background: #FFFFFF;
     border: 1px solid #C7C7C7;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
     width: 379px;
-    height: 43px;
+    height: 40px;
 }
 
 .auth-button{
@@ -238,4 +233,21 @@
     padding-left: 10px;
     margin-right: -10px;
 
+}
+
+.auth-input-error{
+    border: 1px solid red;
+    box-shadow: 0px 0px 5px rgba(255, 69, 69, 0.59);
+}
+.auth-input-error-message{
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.01em;
+    color: #FF5959;
+    margin-left: 80px;
+    margin-top: 7px;
 }
