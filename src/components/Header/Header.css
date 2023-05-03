@@ -113,14 +113,14 @@
     position: absolute;
     right: 250px;
     top: 0px;
-    width: 175px;
+    width: 180px;
     height: 63px;
     background: #D9D9D9;
     opacity: 0.3;
     border-radius: 5px;
-    display: block;
-    align-items: center;
+    display: inline-block;
     text-align: right;
+
 }
 .tariff-used{
     font-family: 'Inter', sans-serif;
@@ -128,9 +128,9 @@
     font-weight: 400;
     font-size: 10px;
     line-height: 12px;
-    color: #000000;
     opacity: 0.5;
-    margin-right: 40px;
+    margin-right: 20px;
+    margin-left: 15px;
 }
 .tariff-limit{
     font-family: 'Inter', sans-serif;
@@ -138,7 +138,8 @@
     font-weight: 400;
     font-size: 10px;
     line-height: 12px;
-    margin-right: 40px;
+    margin-right: 20px;
+    margin-left: 15px;
     color: #000000;
     opacity: 0.5;
 }
@@ -165,4 +166,29 @@
     width: 32px;
     height: 32px;
     border-radius: 15px;
+}
+
+.tariff-used-number{
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.01em;
+    color: #050000;
+    margin-bottom: 1px;
+
+
+
+}
+
+.tariff-limit-number{
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.01em;
+    color: #82c432;
+    margin-top: 1px;
 }

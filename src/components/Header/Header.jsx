@@ -11,7 +11,6 @@ function Header() {
     const [accountInfo, setAccountInfo] = useState(null);
 
     useEffect(() => {
-        console.log('privet')
         if (isAuthenticated) {
             axios.get("https://gateway.scan-interfax.ru/api/v1/account/info", {
                 headers: {
@@ -41,8 +40,8 @@ function Header() {
                 <div className="side-menu-auth">
                     {accountInfo && (
                         <div className="tariff-info-auth">
-                            <p className="tariff-used">Использовано компаний</p>
-                            <p className="tariff-limit">Лимит по компаниям </p>
+                            <p className="tariff-used-number"><span className="tariff-used">Использовано компаний</span> {accountInfo.eventFiltersInfo.usedCompanyCount}</p>
+                            <p className="tariff-limit-number"><span className="tariff-limit"span>Лимит по компаниям</span> {accountInfo.eventFiltersInfo.companyLimit} </p>
                         </div>
                     )}
 
@@ -63,9 +62,8 @@ function Header() {
                 </Link>
             </div>
             )}
-
         </div>
-  );
+    );
 }
 
 export default Header;

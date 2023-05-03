@@ -4,9 +4,12 @@ import {Link} from "react-router-dom";
 import Card from "../Card/Card";
 import CardPro from "../Card/CardPro";
 import CardBusiness from "../Card/CardBusiness";
+import {useSelector} from "react-redux";
 
 
 function MainPageComponent (){
+    const isAuthenticated = useSelector((state) => state.isAuthenticated);
+
     //TODO create a card array with data
     return (
         <div className="content">
@@ -18,25 +21,23 @@ function MainPageComponent (){
                 <div className="under-text">
                     <span>Комплексный анализ публикаций, получение данных в формате PDF на электронную почту.</span>
                 </div>
-                <div className="btn_main-page">
-                    <Link to="/search" id="btn-text">Запросить данные</Link>
+                    {isAuthenticated ?
+                        <div className="btn_main-page">
+                            <Link to="/search" id="btn-text">Запросить данные</Link>
+                        </div> : null}
                 </div>
-            </div>
-            <div className="picture"></div>
+                <div className="picture"></div>
             </div>
 
             <div className="middle-page-content">
-            <div className="title">
-                <span> Почему именно мы</span>
-                <div className="slider">
-                <Carousel />
-            </div>
+                <div className="title">
+                    <span> Почему именно мы</span>
+                    <div className="slider">
+                    <Carousel />
+                    </div>
 
-            </div>
-
-
-            <div className="image-elements">
-            </div>
+                </div>
+                <div className="image-elements"></div>
 
             </div>
             <div className="down-page-content">
