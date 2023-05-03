@@ -29,6 +29,9 @@ function Card () {
                     <div className="card-logo_pro"></div>
                 </div>
                 <div className="card-content">
+                    {selected && (
+                        <div className="additional-btn1">Текущий тариф</div>
+                    )}
                     <div className="card-prices">
                         <p className="card-prices_title">
                             <span>1 299 ₽</span>

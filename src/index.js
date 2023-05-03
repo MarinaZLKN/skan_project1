@@ -1,27 +1,48 @@
-import React, {createContext} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
-import Store from "./store/store";
+import {createStore} from "redux";
+import {Provider} from "react-redux";
 
 
+const initialState = {
+    isAuthenticated: false,
+    token: null,
+};
 
-const store = new Store();
+function authReducer(state = initialState, action) {
 
-export const Context = createContext({
-    store,
-})
+    switch (action.type) {
+        case "LOGIN_SUCCESS":
+            return {
+                ...state,
+                isAuthenticated: true,
+                token: action.payload.token,
+            };
+        case "LOGOUT":
+            return {
+                ...state,
+                isAuthenticated: false,
+                token: null,
+              };
+        default:
+            return state;
+    }
+}
+
+const store = createStore(authReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <Context.Provider value={{store}}>
+      <Provider store={store}>
           <BrowserRouter>
           <App />
           </BrowserRouter>
 
-      </Context.Provider>
+      </Provider>
 
   </React.StrictMode>
 );

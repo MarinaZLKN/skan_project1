@@ -2,6 +2,8 @@ import './Card.css';
 import {useEffect, useState} from "react";
 
 function Card () {
+
+
     const [selected, setSelected] = useState(false);
     const [buttonStyle, setButtonStyle] = useState(null);
     const [buttonText, setButtonText] = useState('Подробнее');

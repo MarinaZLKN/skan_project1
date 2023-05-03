@@ -7,7 +7,7 @@ import CardBusiness from "../Card/CardBusiness";
 
 
 function MainPageComponent (){
-
+    //TODO create a card array with data
     return (
         <div className="content">
             <div className="upper-page-content">
@@ -44,6 +44,7 @@ function MainPageComponent (){
                    <span>Наши тарифы</span>
                </div>
                <div className="tariff-cards">
+                   //TODO map in here
                    <Card />
                    <CardPro />
                    <CardBusiness />

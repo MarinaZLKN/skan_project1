@@ -1,8 +1,9 @@
 import './AuthorizationComponent.css';
 import {Link} from "react-router-dom";
-import {useContext, useEffect, useState} from "react";
-import {Context} from "../../index";
+import {useEffect, useState} from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import {useDispatch} from "react-redux";
 
 
 
@@ -13,8 +14,12 @@ function AuthorizationComponent () {
     const [error, setError] = useState("");
     const [accountInfo, setAccountInfo] = useState(null);
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const handleLogin = async () => {
+    const handleLogin = async (e) => {
+        //чтобы страница не обоновлялась
+        e.preventDefault()
         try {
             const response = await axios.post(
                 "https://gateway.scan-interfax.ru/api/v1/account/login",
@@ -22,16 +27,17 @@ function AuthorizationComponent () {
                 {
                     headers: {
                         "Content-type": "application/json",
-                        "Accept": "application/json",
+                        Accept: "application/json",
                     },
                 }
             );
-            const { accessToken } = response.data;
-            console.log(response.data)
+            const { accessToken, expire } = response.data;
+            dispatch({ type: "LOGIN_SUCCESS", payload: { token: accessToken } });
+            console.log('accessToken', accessToken)
+            console.log('expire', expire)
+            navigate('/');
             if (accessToken) {
                 localStorage.setItem("accessToken", accessToken);
-                const myToken = localStorage.getItem("accessToken")
-                console.log(myToken)
             } else {
                 setError("Access token did not found");
             }
@@ -41,23 +47,17 @@ function AuthorizationComponent () {
     };
 
     //функция получания инфы работает, но возвращает 401, поскольку мы еще не авторизированы
-    useEffect(() => {
-        axios.get('https://gateway.scan-interfax.ru/api/v1/account/info')
-            .then(response => {
-            setAccountInfo(response.data);
-            console.log(response.data)
-        })
-            .catch(error => {
-                console.log(error);
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios.get('https://gateway.scan-interfax.ru/api/v1/account/info')
+    //         .then(response => {
+    //         setAccountInfo(response.data);
+    //         console.log(response.data)
+    //     })
+    //         .catch(error => {
+    //             console.log(error);
+    //         });
+    // }, []);
 
-
-
-
-
-
-    // const {store} = useContext(Context);
 
     return (
         <div className="auth-component">
@@ -77,9 +77,6 @@ function AuthorizationComponent () {
                                     <div className="auth-input-title"> Пароль:</div>
                                     <input onChange={(e) => setPassword(e.target.value)} value={password} id="input" type="password"/>
                                     <button onClick={handleLogin} type="submit" id="auth-text" className="auth-button"> Войти </button>
-                                     {/*<Link to="/">*/}
-                                     {/*    <button onClick={handleLogin} type="submit" id="auth-text" className="auth-button"> Войти </button>*/}
-                                     {/*</Link>*/}
                                     <div className="auth-restore-pass">
                                         <a href="#" id="text-auth">Восстановить пароль</a>
                                     </div>
