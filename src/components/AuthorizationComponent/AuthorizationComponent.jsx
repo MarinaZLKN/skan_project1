@@ -10,20 +10,34 @@ import {useDispatch} from "react-redux";
 function AuthorizationComponent () {
 
     const [login, setLogin] = useState('');
+    const [loginValid, setLoginValid] = useState(true);
     const [password, setPassword] = useState('');
+    const [passwordValid, setPasswordValid] = useState(true);
+    const [submitDisabled, setSubmitDisabled] = useState(true);
     const [error, setError] = useState("");
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+
+    const handleLoginChange = (e) => {
+        setLogin(e.target.value);
+        setLoginValid(e.target.value === 'sf_student1');
+        setSubmitDisabled(!(loginValid && passwordValid));
+      };
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+        setPasswordValid(e.target.value === '4i2385j');
+        setSubmitDisabled(!(loginValid && passwordValid));
+      };
     const handleLogin = async (e) => {
         //чтобы страница не обоновлялась
         e.preventDefault()
-        if (!login.trim() || !password.trim()) {
-            setError("Please enter login and password");
-            return;
-        }
         try {
+            if (!loginValid || !passwordValid) {
+                return;
+            }
             const response = await axios.post(
                 "https://gateway.scan-interfax.ru/api/v1/account/login",
                 {login, password},
@@ -65,11 +79,17 @@ function AuthorizationComponent () {
                             <section className="tab-content">
                                 <form className="auth-center-side">
                                     <div className="auth-input-title"> Логин или номер телефона:</div>
-                                    <input onChange={(e)=> setLogin(e.target.value)} value={login} className={`input-1 ${error ? 'auth-input-error' : ''}`} type="text" size="30"/>
-                                    {error && <div className="auth-input-error-message">Введите корректные данные</div>}
+                                    <input onChange={handleLoginChange} value={login} style={{
+                                        borderColor: loginValid ? '' : 'red',
+                                        boxShadow: loginValid ? '' : '0px 0px 5px rgba(255, 69, 69, 0.59)'
+                                    }} className="input-1" type="text" size="30"/>
+                                    {!loginValid && <div className="auth-input-error-message">Введите корректные данные</div>}
                                     <div className="auth-input-title"> Пароль:</div>
-                                    <input onChange={(e) => setPassword(e.target.value)} value={password} className={`input ${error ? 'auth-input-error' : ''}`} type="password"/>
-                                    {error && <div className="auth-input-error-message">Неправильный пароль</div>}
+                                    <input onChange={handlePasswordChange} value={password} className="input" style={{
+                                        borderColor: passwordValid ? '' : 'red',
+                                        boxShadow: passwordValid ? '' : '0px 0px 5px rgba(255, 69, 69, 0.59)'
+                                    }} type="password"/>
+                                    {!passwordValid && <div className="auth-input-error-message">Неправильный пароль</div>}
                                     <button onClick={handleLogin} type="submit" id="auth-text" className="auth-button"> Войти </button>
                                     <div className="auth-restore-pass">
                                         <a href="#" id="text-auth">Восстановить пароль</a>
