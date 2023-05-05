@@ -35,13 +35,15 @@
 }
 
 .card-title {
-    padding-top: 15px;
+    padding-top: 30px;
     font-family: 'Inter',sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
     line-height: 36px;
     letter-spacing: 0.01em;
+
+    margin-bottom: 6px;
 
     color: #000000;
 }
@@ -53,6 +55,7 @@
     font-size: 18px;
     line-height: 22px;
     letter-spacing: 0.01em;
+    margin-top: 4px;
 
     color: #000000;
 }
