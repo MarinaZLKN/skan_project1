@@ -1,7 +1,7 @@
 .tariff-card{
 
     box-sizing: border-box;
-    width: 415px;
+    width: 413px;
     height: 540px;
     background: #FFFFFF;
     border: 2px;
@@ -10,7 +10,7 @@
 }
 
 .tariff-card.selected {
-    border: 2px solid #FFB64F;
+    border: 3px solid #FFB64F;
     font-weight: bold;
 }
 
@@ -70,6 +70,7 @@
 
     transform: matrix(1, 0, 0, 1, 0, 0);
 }
+
 .card-content{
     display: block;
     padding-left: 20px;
@@ -153,7 +154,6 @@ li::before {
     background: #5970FF;
     border-radius: 5px;
     border: none;
-    /*opacity: 0.5;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -194,3 +194,14 @@ li::before {
     border-radius: 10px;
 }
 
+.card-upper-side.yellow{
+  background: #FFB64F;
+}
+
+.card-upper-side.blue {
+  background: #7CE3E1;
+}
+
+.card-upper-side.black {
+  background: #000000;
+}
