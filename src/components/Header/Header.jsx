@@ -41,7 +41,7 @@ function Header() {
                     {accountInfo && (
                         <div className="tariff-info-auth">
                             <p className="tariff-used-number"><span className="tariff-used">Использовано компаний</span> {accountInfo.eventFiltersInfo.usedCompanyCount}</p>
-                            <p className="tariff-limit-number"><span className="tariff-limit"span>Лимит по компаниям</span> {accountInfo.eventFiltersInfo.companyLimit} </p>
+                            <p className="tariff-limit-number"><span className="tariff-limit">Лимит по компаниям</span> {accountInfo.eventFiltersInfo.companyLimit} </p>
                         </div>
                     )}
 

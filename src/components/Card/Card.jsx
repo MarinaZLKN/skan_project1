@@ -3,6 +3,37 @@ import {useEffect, useState} from "react";
 
 function Card () {
 
+    const cardData = [
+        {
+            id: 1,
+            title: 'Beginner',
+            price: '799 ₽',
+            price_before: ' 1 200 ₽',
+            info: 'или 150 ₽/мес. при рассрочке на 24 мес.',
+            label: 'В тариф входят:',
+            li: 'Безлимитная история запросов'
+        },
+        {
+            id: 2,
+            title: 'Pro',
+            price: '1 299 ₽',
+            price_before: ' 2 600 ₽',
+            info: 'или 279 ₽/мес. при рассрочке на 24 мес.',
+            label: 'В тариф входят:',
+            li: 'Все пункты тарифа Beginner'
+        },
+        {
+            id: 3,
+            title: 'Business',
+            price: '2 379 ₽',
+            price_before: ' 3 700 ₽',
+            info: null,
+            label: 'В тариф входят:',
+            li: 'Все пункты тарифа Pro'
+        },
+
+    ]
+
 
     const [selected, setSelected] = useState(false);
     const [buttonStyle, setButtonStyle] = useState(null);

@@ -1,0 +1,41 @@
+.result-content{
+    position: absolute;
+    top: 150px;
+    left: 80px;
+}
+
+.result-static {
+    display: flex;
+}
+.result-static_left{
+    flex: 0 1 60%;
+}
+.result-static_main-title{
+    font-family: 'Rubik', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.result-static_span{
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+
+    color: #000000;
+}
+.result-static_pic {
+    background: url(girl-pic.png);
+    position: absolute;
+    width: 553px;
+    height: 369px;
+    left: 750px;
+
+}

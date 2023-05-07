@@ -1,6 +1,7 @@
 import './SearchComponent.css';
 import {useState} from "react";
 import DateInput from "./DateInput";
+import {Link} from "react-router-dom";
 
 
 function SearchComponent (){
@@ -54,7 +55,9 @@ function SearchComponent (){
                 <p id="checkbox-p"><input type="checkbox" name="checkbox" value=""/> Включать сводки новостей</p>
             </div>
                 <div className="search-down-part">
-                    <button type="submit" className="search-button" disabled={!isValid}>Поиск</button>
+                    <Link to="/resultpage">
+                        <button type="submit" className="search-button" disabled={!isValid}>Поиск</button>
+                    </Link>
                     <p id="bottom-p"> <sup>*</sup>Обязательные к заполнению поля</p>
                 </div>
 
