@@ -38,6 +38,7 @@
     font-size: 14px;
     line-height: 17px;
     color: #000000;
+    z-index: 2;
 
 }
 
@@ -68,6 +69,7 @@
     line-height: 17px;
     letter-spacing: 0.01em;
     cursor: pointer;
+    z-index: 2;
 
     color: #000000;
 
@@ -84,6 +86,7 @@
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,6 +161,7 @@
     opacity: 0.7;
 }
 .logout-btn{
+    z-index: 2;
 
 }
 .account-pic{
