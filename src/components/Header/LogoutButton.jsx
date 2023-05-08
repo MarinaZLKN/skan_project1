@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-
+import './Header.css'
 function LogoutButton() {
     const dispatch = useDispatch();
 
@@ -7,7 +7,7 @@ function LogoutButton() {
         dispatch({ type: "LOGOUT" });
     };
 
-    return <button onClick={handleLogout}>Выйти</button>;
+    return <button className="logout-btn_style" onClick={handleLogout}>Выйти</button>;
 }
 
 export default LogoutButton;

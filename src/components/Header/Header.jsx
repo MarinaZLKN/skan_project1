@@ -40,8 +40,8 @@ function Header() {
                 <div className="side-menu-auth">
                     {accountInfo && (
                         <div className="tariff-info-auth">
-                            <p className="tariff-used-number"><span className="tariff-used">Использовано компаний</span> {accountInfo.eventFiltersInfo.usedCompanyCount}</p>
-                            <p className="tariff-limit-number"><span className="tariff-limit">Лимит по компаниям</span> {accountInfo.eventFiltersInfo.companyLimit} </p>
+                            <p className="tariff-used-number"><span className="tariff-used">Использовано компаний</span><span className="tariff-number">{accountInfo.eventFiltersInfo.usedCompanyCount}</span></p>
+                            <p className="tariff-limit-number"><span className="tariff-limit">Лимит по компаниям</span> <span className="tariff-number">{accountInfo.eventFiltersInfo.companyLimit}</span> </p>
                         </div>
                     )}
 

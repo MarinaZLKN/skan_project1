@@ -39,6 +39,7 @@
     line-height: 17px;
     color: #000000;
     z-index: 2;
+    text-decoration: none;
 
 }
 
@@ -135,6 +136,10 @@
     margin-right: 20px;
     margin-left: 15px;
 }
+
+.tariff-number{
+    margin-right: 10px;
+}
 .tariff-limit{
     font-family: 'Inter', sans-serif;
     font-style: normal;
@@ -151,7 +156,7 @@
 
 }
 .account-name{
-
+    margin-bottom: 1px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -162,11 +167,26 @@
 }
 .logout-btn{
     z-index: 2;
+    text-align: right;
 
+}
+.logout-btn_style{
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    color: #000000;
+    opacity: 0.4;
 }
 .account-pic{
     background: url(account-pic.png);
-
+    position: absolute;
+    top: 17px;
+    left: 78px;
     width: 32px;
     height: 32px;
     border-radius: 15px;
@@ -181,9 +201,6 @@
     letter-spacing: 0.01em;
     color: #050000;
     margin-bottom: 1px;
-
-
-
 }
 
 .tariff-limit-number{
@@ -196,3 +213,5 @@
     color: #82c432;
     margin-top: 1px;
 }
+
+
