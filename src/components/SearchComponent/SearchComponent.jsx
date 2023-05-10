@@ -36,10 +36,10 @@ function SearchComponent (){
             startDate: startDate.toISOString(),
             endDate: endDate.toISOString()
         },
-      // other search parameters
+
         };
 
-        // make API call using fetch and post method
+
         axios.post('https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms', {
             method: 'POST',
             headers: {
@@ -49,11 +49,11 @@ function SearchComponent (){
         })
             .then(response => response.json())
             .then(data => {
-            // handle the API response here
+
             console.log(data);
         })
         .catch(error => {
-            // handle error here
+
             console.error(error);
         });
     };
