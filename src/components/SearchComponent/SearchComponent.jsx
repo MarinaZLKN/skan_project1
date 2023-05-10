@@ -2,6 +2,7 @@ import './SearchComponent.css';
 import {useState} from "react";
 import DateInput from "./DateInput";
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 
 function SearchComponent (){
@@ -9,16 +10,56 @@ function SearchComponent (){
     const [endDate, setEndDate] = useState('');
     const [isValid, setIsValid] = useState(true);
 
-    function handleValidation(start, end) {
-        setIsValid(new Date(start) <= new Date(end));
+
+    function handleValidation(startDate, endDate) {
+        const startDateObj = new Date(startDate);
+        const endDateObj = new Date(endDate);
+
+        if (isNaN(startDateObj.getTime()) || isNaN(endDateObj.getTime())) {
+            alert('Please enter a valid date range.');
+        return false;
+        }
+
+        if (startDateObj > endDateObj) {
+            alert('Start date cannot be later than end date.');
+            return false;
+        }
+
+        return true;
     }
 
-    function handleSubmit(event) {
+    const handleSubmit = (event) => {
         event.preventDefault();
-    }
+
+        const searchParams = {
+            issueDateInterval: {
+            startDate: startDate.toISOString(),
+            endDate: endDate.toISOString()
+        },
+      // other search parameters
+        };
+
+        // make API call using fetch and post method
+        axios.post('https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(searchParams)
+        })
+            .then(response => response.json())
+            .then(data => {
+            // handle the API response here
+            console.log(data);
+        })
+        .catch(error => {
+            // handle error here
+            console.error(error);
+        });
+    };
 
     return (
-        <div className="search-component-content">
+        <form className="search-component-content" onSubmit={handleSubmit}>
             <div className="search-component-inputs">
                 <div className="search-input-1"> <p id="checkbox-p">ИНН компании<sup>*</sup> </p> </div>
                 <input id="input_1" type="text" name="inn"  size="30" placeholder="10 цифр"/>
@@ -33,14 +74,9 @@ function SearchComponent (){
                 <input id="input_1" type="text" size="30" placeholder="От 1 до 1000" min="1" max="1000"/>
                 <div className="search-input-4"> <p id="checkbox-p">Диапазон поиска<sup>*</sup></p> </div>
                 <form id="search-form">
-                     < DateInput startDate={startDate} endDate={endDate} onValidation={handleValidation}/>
-
-                    {/*<p id="checkbox-p">*/}
-                    {/*    <input type="date" id="date" name="start-date"/>*/}
-                    {/*</p>*/}
-                    {/*<p id="checkbox-p">*/}
-                    {/*    <input type="date" id="date" name="end-date"/>*/}
-                    {/*</p>*/}
+                    <DateInput label="Start date" value={startDate} onChange={setStartDate} onValidation={handleValidation}/>
+                    <DateInput label="End date" value={endDate} onChange={setEndDate} onValidation={handleValidation}/>
+                     {/*< DateInput  onValidation={handleValidation}/>*/}
 
                 </form>
             </div>
@@ -63,7 +99,7 @@ function SearchComponent (){
 
             </div>
 
-        </div>
+        </form>
     )
 }
 
