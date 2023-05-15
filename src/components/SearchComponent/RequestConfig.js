@@ -1,8 +1,9 @@
 export function getRequestConfig(startDate, endDate, inn) {
+
     const config = {
         issueDateInterval: {
-            startDate: `${startDate}T00:00:00.000Z`,
-            endDate: `${endDate}T00:00:00.000Z`
+            startDate: `${startDate}T00:00:00+03:00`,
+            endDate: `${endDate}T23:59:59+03:00`
         },
         searchContext: {
             targetSearchEntitiesContext: {
@@ -30,16 +31,6 @@ export function getRequestConfig(startDate, endDate, inn) {
                     not: []
                 }
             },
-            searchEntitiesFilter: {
-                and: [],
-                or: [],
-                not: []
-            },
-            locationsFilter: {
-                and: [],
-                or: [],
-                not: []
-            },
             themesFilter: {
                 and: [],
                 or: [],
@@ -66,7 +57,7 @@ export function getRequestConfig(startDate, endDate, inn) {
             "totalDocuments",
             "riskFactors"
         ]
-    }
+    };
 
-    return JSON.stringify(config)
+    return config
 }

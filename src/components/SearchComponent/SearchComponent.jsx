@@ -6,6 +6,7 @@ import axios from "axios";
 import {useSelector} from "react-redux";
 import {getRequestConfig} from "./RequestConfig";
 import Inn from "./Inn";
+import { useNavigate } from 'react-router-dom';
 
 
 function SearchComponent (){
@@ -15,6 +16,7 @@ function SearchComponent (){
     const [inn, setInn] =useState('');
     const isAuthenticated = useSelector((state) => state.isAuthenticated);
     const token = useSelector((state) => state.token);
+    const navigate = useNavigate();
 
     function handleStartDate (e) {
         setStartDate(e.target.value);
@@ -59,20 +61,29 @@ function SearchComponent (){
         }
 
         const config = getRequestConfig(startDate, endDate, inn);
-        console.log(config);
+        // console.log(config);
         axios.post(
             "https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms",
-            {config},
+            config,
             {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     Accept: 'application/json',
                 }
             }).then(response => {
-                console.log(response);
-        }).catch(error => {
-            console.log(error)
-        })
+                console.log('Hellooo1')
+                console.log(response.data);
+                if (response.data.data){
+                    response.data.data.forEach((arr) => {
+                        console.log('Hellooo')
+                        console.log(arr.histogramTypes);
+                        arr.data.forEach((d) => console.log(d))
+                    })
+                }
+                navigate('/resultpage');
+            }).catch(error => {
+                console.log(error)
+            })
     };
 
     return (

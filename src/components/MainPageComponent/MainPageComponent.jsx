@@ -91,9 +91,6 @@ function MainPageComponent (){
                    <span>Наши тарифы</span>
                </div>
                <div className="tariff-cards">
-                   {/*<Card />*/}
-                   {/*<CardPro />*/}
-                   {/*<CardBusiness />*/}
                    <CardList cardData={cardData}/>
                </div>
             </div>
