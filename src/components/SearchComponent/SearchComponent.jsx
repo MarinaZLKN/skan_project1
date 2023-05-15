@@ -71,12 +71,12 @@ function SearchComponent (){
                     Accept: 'application/json',
                 }
             }).then(response => {
-                console.log('Hellooo1')
+                console.log('Data: ')
                 console.log(response.data);
                 if (response.data.data){
                     response.data.data.forEach((arr) => {
-                        console.log('Hellooo')
-                        console.log(arr.histogramTypes);
+                        console.log('HistogramTypes: ')
+                        console.log(arr.histogramType.riskFactors);
                         arr.data.forEach((d) => console.log(d))
                     })
                 }
@@ -90,8 +90,6 @@ function SearchComponent (){
         <form className="search-component-content" onSubmit={handleSubmit}>
             <div className="search-component-inputs">
                 <Inn handleInn={handleInn}/>
-                {/*<div className="search-input-1"> <p id="checkbox-p">ИНН компании<sup>*</sup> </p> </div>*/}
-                {/*<input id="input_1" type="text" name="inn"  size="30" placeholder="10 цифр"/>*/}
                 <div className="search-input-list"> <p id="checkbox-p">Тональность</p> </div>
                 <input id="input_1" type="text" list="list"/>
                     <datalist id="list" placeholder="Любая">
@@ -125,9 +123,7 @@ function SearchComponent (){
                 <p id="checkbox-p"><input type="checkbox" name="checkbox" value=""/> Включать сводки новостей</p>
             </div>
                 <div className="search-down-part">
-                    <Link to="/resultpage">
-                        <button type="submit" className="search-button" onClick={handleSubmit}>Поиск</button>
-                    </Link>
+                    <button type="submit" className="search-button" onClick={handleSubmit}>Поиск</button>
                     <p id="bottom-p"> <sup>*</sup>Обязательные к заполнению поля</p>
                 </div>
 

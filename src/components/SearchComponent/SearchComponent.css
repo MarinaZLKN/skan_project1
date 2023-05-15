@@ -109,3 +109,17 @@
     gap: 15px;
 }
 
+.search-input-error{
+    margin-top: 5px;
+    margin-left: 15px;
+    font-family: 'Inter',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    letter-spacing: 0.01em;
+
+    color: #FF5959;
+}
+

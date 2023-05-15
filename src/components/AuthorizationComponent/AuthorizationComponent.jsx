@@ -81,12 +81,16 @@ function AuthorizationComponent () {
                                     <div className="auth-input-title"> Логин или номер телефона:</div>
                                     <input onChange={handleLoginChange} value={login} style={{
                                         borderColor: loginValid ? '' : 'red',
+                                        outline: 'none',
+                                        color: !loginValid ? 'red' : '',
                                         boxShadow: loginValid ? '' : '0px 0px 5px rgba(255, 69, 69, 0.59)'
                                     }} className="input-1" type="text" size="30"/>
                                     {!loginValid && <div className="auth-input-error-message">Введите корректные данные</div>}
                                     <div className="auth-input-title"> Пароль:</div>
                                     <input onChange={handlePasswordChange} value={password} className="input" style={{
                                         borderColor: passwordValid ? '' : 'red',
+                                        outline: 'none',
+                                        color: !loginValid ? 'red' : '',
                                         boxShadow: passwordValid ? '' : '0px 0px 5px rgba(255, 69, 69, 0.59)'
                                     }} type="password"/>
                                     {!passwordValid && <div className="auth-input-error-message">Неправильный пароль</div>}

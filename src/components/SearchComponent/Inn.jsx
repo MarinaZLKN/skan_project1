@@ -1,5 +1,5 @@
 import './SearchComponent.css';
-import {useState} from "react";
+import React, {useState} from "react";
 function Inn ( {handleInn }) {
 
     const [isValid, setIsValid] = useState(false);
@@ -69,7 +69,20 @@ function Inn ( {handleInn }) {
     return (
             <div className="search-input-1">
                 <p id="checkbox-p">ИНН компании<sup>*</sup> </p>
-                <input id="input_1" type="text" name="inn"  size="30" onBlur={handleCheckInn} placeholder="10 цифр"/>
+                <input id="input_1"
+                       type="text"
+                       name="inn"
+                       size="30"
+                       onBlur={handleCheckInn}
+                       placeholder="10 цифр"
+                       style={{
+                           borderColor: !isValid ? 'red' : '',
+                           outline: 'none',
+                           color: !isValid ? 'red' : '',
+                           boxShadow: !isValid ? '0px 0px 5px rgba(255, 89, 89, 0.6)' : ''
+                       }}
+                />
+                {!isValid && <div className="search-input-error" style={{ color: 'red'}}>Введите корректные данные</div>}
             </div>
     )
 };
