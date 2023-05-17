@@ -81,8 +81,9 @@ function Inn ( {handleInn }) {
                            color: !isValid ? 'red' : '',
                            boxShadow: !isValid ? '0px 0px 5px rgba(255, 89, 89, 0.6)' : ''
                        }}
+
                 />
-                {!isValid && <div className="search-input-error" style={{ color: 'red'}}>Введите корректные данные</div>}
+                {!isValid && <div className="search-input-error" style={{ color: 'red'}}>Введите корректные данные</div> }
             </div>
     )
 };

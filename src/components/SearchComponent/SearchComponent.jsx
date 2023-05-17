@@ -1,7 +1,6 @@
 import './SearchComponent.css';
 import {useState} from "react";
 import DateInput from "./DateInput";
-import {Link} from "react-router-dom";
 import axios from "axios";
 import {useSelector} from "react-redux";
 import {getRequestConfig} from "./RequestConfig";
@@ -9,11 +8,13 @@ import Inn from "./Inn";
 import { useNavigate } from 'react-router-dom';
 
 
+
 function SearchComponent (){
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [isValid, setIsValid] = useState(true);
     const [inn, setInn] =useState('');
+    const [data, setData] = useState('');
     const isAuthenticated = useSelector((state) => state.isAuthenticated);
     const token = useSelector((state) => state.token);
     const navigate = useNavigate();
@@ -71,6 +72,8 @@ function SearchComponent (){
                     Accept: 'application/json',
                 }
             }).then(response => {
+                const processedData = response;
+                setData(processedData);
                 console.log('Data: ')
                 console.log(response.data);
                 if (response.data.data){
@@ -108,8 +111,6 @@ function SearchComponent (){
                                onChangeStartDate={handleStartDate}
                                onChangeEndDate={handleEndDate}
                                onValidation={handleValidation}/>
-
-
                 </form>
             </div>
             <div className="search-checkbox-button">
@@ -123,10 +124,9 @@ function SearchComponent (){
                 <p id="checkbox-p"><input type="checkbox" name="checkbox" value=""/> Включать сводки новостей</p>
             </div>
                 <div className="search-down-part">
-                    <button type="submit" className="search-button" onClick={handleSubmit}>Поиск</button>
+                    <button type="submit" className="search-button" onClick={handleSubmit} data={data}>Поиск</button>
                     <p id="bottom-p"> <sup>*</sup>Обязательные к заполнению поля</p>
                 </div>
-
             </div>
 
         </form>

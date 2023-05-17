@@ -1,0 +1,32 @@
+.stat-component_title{
+    position: absolute;
+    width: 447px;
+    height: 36px;
+    left: 80px;
+    top: 469px;
+
+    font-family: 'Rubik', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.stat-component_total-amount{
+    position: absolute;
+    width: 234px;
+    height: 22px;
+    left: 80px;
+    top: 522px;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #949494;
+}
