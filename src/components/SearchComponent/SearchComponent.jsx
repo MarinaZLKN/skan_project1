@@ -6,6 +6,7 @@ import {useSelector} from "react-redux";
 import {getRequestConfig} from "./RequestConfig";
 import Inn from "./Inn";
 import { useNavigate } from 'react-router-dom';
+import DataSlider from "../ResultPage/DataSlider/DataSlider";
 
 
 
@@ -72,17 +73,18 @@ function SearchComponent (){
                     Accept: 'application/json',
                 }
             }).then(response => {
-                const processedData = response;
+                const processedData = response.data;
                 setData(processedData);
+                console.log('processeddata', processedData)
                 console.log('Data: ')
                 console.log(response.data);
-                if (response.data.data){
-                    response.data.data.forEach((arr) => {
-                        console.log('HistogramTypes: ')
-                        console.log(arr.histogramType.riskFactors);
-                        arr.data.forEach((d) => console.log(d))
-                    })
-                }
+                // if (response.data.data){
+                //     response.data.data.forEach((arr) => {
+                //         console.log('HistogramTypes: ')
+                //         console.log(arr.histogramTypes);
+                //         arr.data.forEach((d) => console.log(d))
+                //     })
+                // }
                 navigate('/resultpage');
             }).catch(error => {
                 console.log(error)
@@ -124,7 +126,7 @@ function SearchComponent (){
                 <p id="checkbox-p"><input type="checkbox" name="checkbox" value=""/> Включать сводки новостей</p>
             </div>
                 <div className="search-down-part">
-                    <button type="submit" className="search-button" onClick={handleSubmit} data={data}>Поиск</button>
+                    <button type="submit" className="search-button" onClick={handleSubmit} >Поиск</button>
                     <p id="bottom-p"> <sup>*</sup>Обязательные к заполнению поля</p>
                 </div>
             </div>
