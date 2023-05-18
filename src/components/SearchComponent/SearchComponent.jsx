@@ -85,7 +85,7 @@ function SearchComponent (){
                 //         arr.data.forEach((d) => console.log(d))
                 //     })
                 // }
-                navigate('/resultpage');
+                navigate('/resultpage', { state: { data: processedData } });
             }).catch(error => {
                 console.log(error)
             })

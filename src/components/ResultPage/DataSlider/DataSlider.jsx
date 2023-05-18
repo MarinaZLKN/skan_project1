@@ -1,6 +1,8 @@
 import './DataSlider.css';
 
+
 function DataSlider (data) {
+
 
     return(
         <div className="data-slider_box">
@@ -11,6 +13,7 @@ function DataSlider (data) {
                     <span className="titles">Риски</span>
                 </div>
             </div>
+
         </div>
     )
 }

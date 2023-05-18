@@ -2,9 +2,24 @@
 
 
 .app{
-  position: absolute;
-  width: 1440px;
-  height: 2867px;
+  /*position: absolute;*/
+  /*width: 1440px;*/
+  /*height: 2867px;*/
 
+  width: 100%;
+  height: 100%;
   background: #FFFFFF;
+
+}
+footer{
+
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+main{
+  width: 100%;
 }

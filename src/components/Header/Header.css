@@ -3,8 +3,10 @@
 .header{
     position: absolute;
     padding: 10px;
-    margin: 20px;
-    width: 1440px;
+    margin-top: 20px;
+    /*margin: 20px;*/
+    /*width: 1440px;*/
+    width: 100%;
     height: 93px;
     background: #FFFFFF;
     display: flex;
@@ -110,6 +112,7 @@
 .side-menu-auth{
     position: absolute;
     right: 30px;
+    margin-right: 50px;
     display: flex;
     justify-content: space-between;
 }

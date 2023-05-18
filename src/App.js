@@ -14,16 +14,22 @@ function App() {
 
     return (
     <div className="app">
-        <Header isAuthenticated={isAuthenticated}/>
-        <Routes>
-            <Route path="/" element={<MainPageComponent />} />
-            <Route path="/auth" element={<AuthorizationPage />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/" element={<MainPageComponent />} />
-            <Route path="/resultpage" element={<ResultPage/>} />
-        </Routes>
+        <header>
+            <Header isAuthenticated={isAuthenticated}/>
+        </header>
+        <main>
+             <Routes>
+                <Route path="/" element={<MainPageComponent />} />
+                <Route path="/auth" element={<AuthorizationPage />} />
+                <Route path="/search" element={<SearchPage />} />
+                <Route path="/" element={<MainPageComponent />} />
+                <Route path="/resultpage" element={<ResultPage/>} />
+            </Routes>
+        </main>
+        <footer>
+             <Footer />
+        </footer>
 
-        <Footer />
     </div>
   );
 
