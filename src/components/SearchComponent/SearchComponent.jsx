@@ -6,6 +6,7 @@ import {useSelector} from "react-redux";
 import {getRequestConfig} from "./RequestConfig";
 import Inn from "./Inn";
 import { useNavigate } from 'react-router-dom';
+import {Link} from "react-router-dom";
 import DataSlider from "../ResultPage/DataSlider/DataSlider";
 
 
@@ -86,6 +87,10 @@ function SearchComponent (){
                 //     })
                 // }
                 navigate('/resultpage', { state: { data: processedData } });
+            // <Link to={{
+            //     pathname: "/resultpage",
+            //     state: {data: processedData}
+            // }}>
             }).catch(error => {
                 console.log(error)
             })

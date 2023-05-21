@@ -3,7 +3,8 @@ import './ResultPage.css';
 import StatComponent from "./StatComponent/StatComponent";
 
 
-function ResultPage () {
+function ResultPage ({props}) {
+    console.log("ResultPage", props)
     return(
         <>
             <div className="result-content">
@@ -15,7 +16,7 @@ function ResultPage () {
                     <div className="result-static_pic"></div>
                 </div>
             </div>
-            <StatComponent/>
+            <StatComponent data={props}/>
         </>
 
     )

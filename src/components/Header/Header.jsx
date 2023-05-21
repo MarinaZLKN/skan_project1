@@ -45,22 +45,22 @@ function Header() {
                         </div>
                     )}
 
-                <div className="account-info">
-                    <p className="account-name">Алексей А.</p>
-                    <div className="logout-btn">
-                        <LogoutButton/>
+                    <div className="account-info">
+                        <p className="account-name">Алексей А.</p>
+                        <div className="logout-btn">
+                            <LogoutButton/>
+                        </div>
+                        <div className="account-pic"></div>
                     </div>
-                    <div className="account-pic"></div>
                 </div>
-            </div>
             ) : (
                 <div className="side-menu">
-                <label className="register-name"> Зарегистрироваться</label>
-                <div className="separator"></div>
-                <Link to="/auth">
-                    <button className="header-btn" id="header-btn-text">Войти</button>
-                </Link>
-            </div>
+                    <label className="register-name"> Зарегистрироваться</label>
+                    <div className="separator"></div>
+                    <Link to="/auth">
+                        <button className="header-btn" id="header-btn-text">Войти</button>
+                    </Link>
+                </div>
             )}
         </div>
     );

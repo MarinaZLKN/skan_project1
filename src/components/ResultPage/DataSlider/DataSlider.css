@@ -38,3 +38,18 @@
 .titles{
     margin-bottom: 26px;
 }
+
+
+.wrapper {
+    position: absolute;
+    left: 104px;
+    top: 571px;
+    display: flex;
+}
+.slider-btn{
+    padding: 5pt;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+}
