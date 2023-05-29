@@ -1,5 +1,4 @@
 import './ResultPage.css';
-
 import StatComponent from "./StatComponent/StatComponent";
 import {useLocation} from "react-router-dom";
 
@@ -7,8 +6,8 @@ import {useLocation} from "react-router-dom";
 function ResultPage () {
     const location = useLocation();
     const data = location.state?.data;
-
     console.log("ResultPage", data)
+
     return(
         <>
             <div className="result-content">

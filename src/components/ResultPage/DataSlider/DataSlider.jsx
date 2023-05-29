@@ -5,7 +5,7 @@ import {useState} from "react";
 function DataSlider ({data}) {
     console.log("DataSlider", data)
     const [index, setIndex] = useState(0)
-    const maxLength = 4;
+    const maxLength = 8;
 
     //extracting the dates
     const dates = data.data[0].data

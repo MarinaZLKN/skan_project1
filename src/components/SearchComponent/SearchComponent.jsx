@@ -6,10 +6,6 @@ import {useSelector} from "react-redux";
 import {getRequestConfig} from "./RequestConfig";
 import Inn from "./Inn";
 import { useNavigate } from 'react-router-dom';
-import {Link} from "react-router-dom";
-import DataSlider from "../ResultPage/DataSlider/DataSlider";
-
-
 
 function SearchComponent (){
     const [startDate, setStartDate] = useState('');
@@ -76,10 +72,8 @@ function SearchComponent (){
             }).then(response => {
                 const processedData = response.data;
                 setData(processedData);
-                console.log('processeddata', processedData)
-                console.log('Data: ')
-                console.log(response.data);
-                navigate('/resultpage', { data: processedData } );
+                console.log('processedData', processedData)
+                navigate('/resultpage', { data: processedData });
             }).catch(error => {
                 console.log(error)
             })
