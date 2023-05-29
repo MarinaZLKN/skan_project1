@@ -79,18 +79,7 @@ function SearchComponent (){
                 console.log('processeddata', processedData)
                 console.log('Data: ')
                 console.log(response.data);
-                // if (response.data.data){
-                //     response.data.data.forEach((arr) => {
-                //         console.log('HistogramTypes: ')
-                //         console.log(arr.histogramTypes);
-                //         arr.data.forEach((d) => console.log(d))
-                //     })
-                // }
-                navigate('/resultpage', { state: { data: processedData } });
-            // <Link to={{
-            //     pathname: "/resultpage",
-            //     state: {data: processedData}
-            // }}>
+                navigate('/resultpage', { data: processedData } );
             }).catch(error => {
                 console.log(error)
             })

@@ -1,23 +1,24 @@
 import './DataSlider.css';
 import {useState} from "react";
-import {getSpaceUntilMaxLength} from "@testing-library/user-event/dist/utils";
 
 
 function DataSlider ({data}) {
     console.log("DataSlider", data)
     const [index, setIndex] = useState(0)
-    const maxLength = 3;
+    const maxLength = 4;
 
+    //extracting the dates
     const dates = data.data[0].data
         .map(element => element.date.split("T")[0])
         .slice(index, index + maxLength);
 
+    //extracting the docs
     const documents = data.data
         .filter(obj => obj.histogramType === "totalDocuments")
         .map(obj => obj.data.map(obj => obj.value))[0]
         .slice(index, index + maxLength);
 
-
+    //extracting the risks
     const risks = data.data
         .filter(obj => obj.histogramType === "riskFactors")
         .map(obj => obj.data.map(obj => obj.value))[0]
@@ -33,47 +34,43 @@ function DataSlider ({data}) {
 
     return(
         <>
-        {/*    <div className="data-slider_box">*/}
-        {/*    <div className="data-slider_left-part">*/}
-        {/*        <div className="data-slider_titles">*/}
-        {/*            <span className="titles">Период</span>*/}
-        {/*            <span className="titles">Всего</span>*/}
-        {/*            <span className="titles">Риски</span>*/}
-        {/*        </div>*/}
-        {/*    </div>*/}
+            <div className="slider-btn_left" onClick={e => handleSteps(e, -1)}>&lt;</div>
+            <div className="data-slider_box">
+                <div className="data-slider_left-part">
+                    <div className="data-slider_titles">
+                        <span className="titles">Период</span>
+                        <span className="titles">Всего</span>
+                        <span className="titles">Риски</span>
+                    </div>
+                </div>
+                <div className="data-slider_right-part">
+                    <div className="table">
+                      <div className="table-tr">
+                          {dates.map(elem => {
+                              return(
+                                  <div className="table-value">{elem}</div>
+                              )
+                          })}
+                      </div>
+                      <div className="table-tr">
+                          {documents.map(doc => {
+                              return (
+                                  <div className="table-value">{doc}</div>
+                              )
+                          })}
+                      </div>
+                          <div className="table-tr">
+                              {risks.map(risk => {
+                                  return (
+                                      <div className="table-value">{risk}</div>
+                                  )
+                              })}
+                          </div>
+                    </div>
+                </div>
+                <div className="slider-btn_right" onClick={e => handleSteps(e, +1)}>&gt;</div>
+                </div>
 
-        {/*</div>*/}
-
-            <div className="wrapper">
-                <div className="slider-btn" onClick={e => handleSteps(e, -1)}>&lt;</div>
-                <table className="table">
-                  <tr>
-                    <th>Date</th>
-                      {dates.map(elem => {
-                          return(
-                              <td>{elem}</td>
-                          )
-                      })}
-                  </tr>
-                  <tr>
-                    <th>Docs</th>
-                      {documents.map(doc => {
-                          return (
-                              <td>{doc}</td>
-                          )
-                      })}
-                  </tr>
-                  <tr>
-                    <th>Risks</th>
-                      {risks.map(risk => {
-                          return (
-                              <td> {risk}</td>
-                          )
-                      })}
-                  </tr>
-                </table>
-                <div className="slider-btn" onClick={e => handleSteps(e, +1)}>&gt;</div>
-            </div>
         </>
 
     )
