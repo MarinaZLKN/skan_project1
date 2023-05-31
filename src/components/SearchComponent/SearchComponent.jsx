@@ -2,10 +2,13 @@ import './SearchComponent.css';
 import {useState} from "react";
 import DateInput from "./DateInput";
 import axios from "axios";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {getRequestConfig} from "./RequestConfig";
 import Inn from "./Inn";
 import { useNavigate } from 'react-router-dom';
+import {setLoading} from "../../actions";
+import { Link } from 'react-router-dom';
+
 
 function SearchComponent (){
     const [startDate, setStartDate] = useState('');
@@ -16,6 +19,8 @@ function SearchComponent (){
     const isAuthenticated = useSelector((state) => state.isAuthenticated);
     const token = useSelector((state) => state.token);
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
     function handleStartDate (e) {
         setStartDate(e.target.value);
@@ -48,20 +53,21 @@ function SearchComponent (){
         return true;
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log('Clicked!')
-        console.log(startDate, endDate)
+        dispatch(setLoading(true));
         const isValid = handleValidation(startDate, endDate);
         console.log(isValid)
 
         if (!isValid) {
+            setLoading(false);
             return;
         }
 
         const config = getRequestConfig(startDate, endDate, inn);
-        // console.log(config);
-        axios.post(
+
+        try {
+            const response = await axios.post(
             "https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms",
             config,
             {
@@ -69,14 +75,36 @@ function SearchComponent (){
                     Authorization: `Bearer ${token}`,
                     Accept: 'application/json',
                 }
-            }).then(response => {
-                const processedData = response.data;
-                setData(processedData);
-                console.log('processedData', processedData)
-                navigate('/resultpage', { data: processedData });
-            }).catch(error => {
-                console.log(error)
-            })
+            }
+          );
+          const processedData = response.data;
+          await setData(processedData);
+          console.log('processedData: ',processedData)
+          navigate(`/resultpage?data=${encodeURIComponent(JSON.stringify(processedData))}`);
+          // navigate('/resultpage', { data: processedData });
+        } catch (error) {
+          console.log(error);
+        } finally {
+          dispatch(setLoading(false));
+        }
+
+
+        // axios.post(
+        //     "https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms",
+        //     config,
+        //     {
+        //         headers: {
+        //             Authorization: `Bearer ${token}`,
+        //             Accept: 'application/json',
+        //         }
+        //     }).then(response => {
+        //         const processedData = response.data;
+        //         setData(processedData);
+        //         console.log('processedData', processedData)
+        //         navigate('/resultpage', { data: processedData });
+        //     }).catch(error => {
+        //         console.log(error)
+        //     })
     };
 
     return (
@@ -114,7 +142,7 @@ function SearchComponent (){
                 <p id="checkbox-p"><input type="checkbox" name="checkbox" value=""/> Включать сводки новостей</p>
             </div>
                 <div className="search-down-part">
-                    <button type="submit" className="search-button" onClick={handleSubmit} >Поиск</button>
+                    <button type="submit" className="search-button"  >Поиск</button>
                     <p id="bottom-p"> <sup>*</sup>Обязательные к заполнению поля</p>
                 </div>
             </div>

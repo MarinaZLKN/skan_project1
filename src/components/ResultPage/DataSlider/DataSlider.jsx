@@ -1,11 +1,15 @@
 import './DataSlider.css';
 import {useState} from "react";
+import {useSelector} from "react-redux";
+import Loader, {Circles} from 'react-loader-spinner';
 
 
 function DataSlider ({data}) {
     console.log("DataSlider", data)
     const [index, setIndex] = useState(0)
+    const isLoading = useSelector((state) => state.loading);
     const maxLength = 8;
+
 
     //extracting the dates
     const dates = data.data[0].data
@@ -31,6 +35,14 @@ function DataSlider ({data}) {
         }
         console.log(index);
     }
+
+     if (isLoading) {
+        return (
+          <div className="loader-container">
+            <Circles type="Oval" color="#000000" height={50} width={50} />
+          </div>
+        );
+      }
 
     return(
         <>

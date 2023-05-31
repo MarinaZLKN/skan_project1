@@ -10,6 +10,7 @@ import {Provider} from "react-redux";
 const initialState = {
     isAuthenticated: false,
     token: null,
+    loading: false,
 };
 
 function authReducer(state = initialState, action) {
@@ -27,6 +28,11 @@ function authReducer(state = initialState, action) {
                 isAuthenticated: false,
                 token: null,
               };
+        case "SET_LOADING":
+            return {
+                ...state,
+                loading: action.payload,
+            }
         default:
             return state;
     }
