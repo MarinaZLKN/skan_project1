@@ -38,7 +38,7 @@ function DataSlider ({data}) {
 
      if (isLoading) {
         return (
-          <div className="loader-container">
+          <div className="data-slider_box">
             <Circles type="Oval" color="#000000" height={50} width={50} />
           </div>
         );

@@ -27,7 +27,7 @@ const CardList = ({ cardData }) => {
             li2={card.li2}
             color={card.color}
             border_color={card.border_color}
-            logo={card.logo}
+            logo={card.img}
             selected={selectedCardId === card.id}
             handleCardClick={() => handleCardClick(card.id)}
           />

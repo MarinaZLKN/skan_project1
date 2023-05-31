@@ -81,30 +81,11 @@ function SearchComponent (){
           await setData(processedData);
           console.log('processedData: ',processedData)
           navigate(`/resultpage?data=${encodeURIComponent(JSON.stringify(processedData))}`);
-          // navigate('/resultpage', { data: processedData });
         } catch (error) {
           console.log(error);
         } finally {
           dispatch(setLoading(false));
         }
-
-
-        // axios.post(
-        //     "https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms",
-        //     config,
-        //     {
-        //         headers: {
-        //             Authorization: `Bearer ${token}`,
-        //             Accept: 'application/json',
-        //         }
-        //     }).then(response => {
-        //         const processedData = response.data;
-        //         setData(processedData);
-        //         console.log('processedData', processedData)
-        //         navigate('/resultpage', { data: processedData });
-        //     }).catch(error => {
-        //         console.log(error)
-        //     })
     };
 
     return (
@@ -142,7 +123,7 @@ function SearchComponent (){
                 <p id="checkbox-p"><input type="checkbox" name="checkbox" value=""/> Включать сводки новостей</p>
             </div>
                 <div className="search-down-part">
-                    <button type="submit" className="search-button"  >Поиск</button>
+                    <button type="submit" className="search-button">Поиск</button>
                     <p id="bottom-p"> <sup>*</sup>Обязательные к заполнению поля</p>
                 </div>
             </div>

@@ -24,7 +24,7 @@
     width: 412px;
     height: 132px;
 
-    background: #FFB64F;
+    color: #FFB64F;
     border-radius: 10px 10px 0px 0px;
 }
 
@@ -60,12 +60,11 @@
     color: #000000;
 }
 .card-logo {
-    background: url(pirn.png);
     position: absolute;
     width: 92.24px;
     height: 83.15px;
-    left: 310.24px;
-    top: 30px;
+    left: 305.24px;
+    top: 25px;
     z-index: 2;
 
     transform: matrix(1, 0, 0, 1, 0, 0);

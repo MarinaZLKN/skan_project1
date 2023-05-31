@@ -3,7 +3,7 @@ import './Card.css';
 const CardNew = ({ title, under_text, price, price_before, info, label, li,li1, li2, selected, color, border_color, logo, handleCardClick }) => {
   const buttonStyle = selected ? { backgroundColor: '#D2D2D2', color: 'black' } : {};
   const borderStyle = selected ? { border: `2px solid ${border_color}`} : {};
-  const titleColor =  "card-upper-side.black" ? {color: 'white'} : {};
+  const titleColor = color === 'black' ? { color: 'white' } : {};
 
   return (
       <div className="tariff-card" style={borderStyle} onClick={handleCardClick}>
@@ -11,7 +11,7 @@ const CardNew = ({ title, under_text, price, price_before, info, label, li,li1, 
           <div className={`card-upper-side ${color}`} style={titleColor}>
             <div className="title-part">
               <p className="card-title" style={titleColor}>{title}</p>
-              <p className="card-title_info" >{under_text}</p>
+              <p className="card-title_info" style={titleColor}>{under_text}</p>
             </div>
             <div className="card-logo">
               <img src={logo} alt="no picture"/>

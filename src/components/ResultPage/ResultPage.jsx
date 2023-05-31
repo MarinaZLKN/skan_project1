@@ -5,9 +5,6 @@ import ResultCard from "./ResultCard/ResultCard";
 
 
 function ResultPage () {
-    // const location = useLocation();
-    // const { data } = location.state || {};
-    // console.log("ResultPage: ", data)
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const dataParam = searchParams.get('data');
