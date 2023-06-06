@@ -4,8 +4,18 @@
     height: 694px;
     left: 60px;
     top: 930px;
+    padding: 10px 20px;
 
     background: #FFFFFF;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+}
+
+
+.result-card_btn{
+    width: 223px;
+    height: 47px;
+    background: #7CE3E1;
+    border-radius: 5px;
+    border: none;
 }
