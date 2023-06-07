@@ -7,7 +7,6 @@ import {getRequestConfig} from "./RequestConfig";
 import Inn from "./Inn";
 import { useNavigate } from 'react-router-dom';
 import {setLoading} from "../../actions";
-import { Link } from 'react-router-dom';
 
 
 function SearchComponent (){
@@ -53,40 +52,123 @@ function SearchComponent (){
         return true;
     }
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        dispatch(setLoading(true));
-        const isValid = handleValidation(startDate, endDate);
-        console.log(isValid)
+   const handleSubmit = async (event) => {
+      event.preventDefault();
+      dispatch(setLoading(true));
+      const isValid = handleValidation(startDate, endDate);
+      console.log(isValid);
 
-        if (!isValid) {
-            setLoading(false);
-            return;
+      if (!isValid) {
+        setLoading(false);
+        return;
+      }
+
+      const config = getRequestConfig(startDate, endDate, inn);
+
+      try {
+        const response = await axios.post(
+          "https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms",
+          config,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              Accept: 'application/json',
+            },
+          }
+        );
+        const processedData = response.data;
+        console.log(' response data:', processedData)
+
+        if (!processedData || !processedData.items) {
+          console.log('Invalid response data:', processedData);
+          setLoading(false);
+          return;
         }
 
-        const config = getRequestConfig(startDate, endDate, inn);
 
         try {
-            const response = await axios.post(
-            "https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms",
-            config,
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    Accept: 'application/json',
-                }
-            }
-          );
-          const processedData = response.data;
-          await setData(processedData);
-          console.log('processedData: ',processedData)
-          navigate(`/resultpage?data=${encodeURIComponent(JSON.stringify(processedData))}`);
+          const documentResponse = await axios.post('https://gateway.scan-interfax.ru/api/v1/documents')
+          console.log('Response from /api/v1/documents:', documentResponse.data);
         } catch (error) {
-          console.log(error);
-        } finally {
-          dispatch(setLoading(false));
+          console.error('Error occurred while making the request to /api/v1/documents:', error);
         }
+
+        const idResponse = await axios.post(
+          "https://gateway.scan-interfax.ru/api/v1/objectsearch",
+          { ...config},
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              Accept: 'application/json',
+            },
+          }
+        );
+
+        const idData = idResponse.data;
+        console.log('idData: ', idData)
+
+        const publicationIds = idData.items.map((item) => item.encodedId);
+        const publicationRequest = {
+          ids: publicationIds,
+        };
+        const publicationResponse = await axios.post(
+          "https://gateway.scan-interfax.ru/api/v1/documents",
+          publicationRequest,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              Accept: 'application/json',
+            },
+          }
+        );
+        const publications = publicationResponse.data;
+
+        await setData(publications);
+        console.log('publications: ', publications);
+
+        navigate(`/resultpage?data=${encodeURIComponent(JSON.stringify(publications))}`);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        dispatch(setLoading(false));
+      }
     };
+
+
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+    //     dispatch(setLoading(true));
+    //     const isValid = handleValidation(startDate, endDate);
+    //     console.log(isValid)
+    //
+    //     if (!isValid) {
+    //         setLoading(false);
+    //         return;
+    //     }
+    //
+    //     const config = getRequestConfig(startDate, endDate, inn);
+    //
+    //     try {
+    //         const response = await axios.post(
+    //         "https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms",
+    //         config,
+    //         {
+    //             headers: {
+    //                 Authorization: `Bearer ${token}`,
+    //                 Accept: 'application/json',
+    //             }
+    //         }
+    //       );
+    //       const processedData = response.data;
+    //       await setData(processedData);
+    //       console.log('processedData: ',processedData)
+    //       navigate(`/resultpage?data=${encodeURIComponent(JSON.stringify(processedData))}`);
+    //     } catch (error) {
+    //       console.log(error);
+    //     } finally {
+    //       dispatch(setLoading(false));
+    //     }
+    // };
 
     return (
         <form className="search-component-content" onSubmit={handleSubmit}>
